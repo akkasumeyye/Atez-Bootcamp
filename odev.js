@@ -4,4 +4,4 @@ function printArguments(...args) {
     });
   }
   
-  console.log(printArguments('hello', 14,15,25,45 , 'naber'));
+  printArguments('hello', 14,15,25,45 , 'naber');
