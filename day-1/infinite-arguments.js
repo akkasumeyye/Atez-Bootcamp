@@ -18,3 +18,8 @@ function printArguments(...args) {
 }
 
 console.log(printArgumentsNumber('hello',1,2,4)); // 
+
+// git status
+// git add .
+// git commit -a -m "lesson assigments"
+// git push

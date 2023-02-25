@@ -10,19 +10,23 @@ const factorial = (num) => {
 console.log(factorial('helloworld')); // start değeri 1'i donderdi :) 
 
 let start2 = 1;
-const factorial2 = (a) => {
-    if(typeof a === "number") {
-        for(let i=1; i<=a; i++) {
+const factorial2 = (num) => {
+    if(typeof num === "number" && num > 0) {
+        for(let i=1; i<=num; i++) {
          start2*=i;
         }
         return start2;
     }
-    else {
-        console.log("lutfen bir sayi degeri giriniz")
-    }
+    
+    else if(num === 0) return 1;
+    
+
+   return "lutfen pozitif bir sayi degeri giriniz";
+    
 }
 
 console.log(factorial2(4));
+console.log(factorial2(-5));
 factorial2('hello world');
 
 
