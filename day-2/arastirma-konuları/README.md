@@ -68,7 +68,9 @@ Class'lar OOP'nin temelini oluşturan yapılardır. Sınıflar, benzer davranı�
 Sınıflar, aşağıdaki özellikleri sağlayarak kullanışlıdır:
 
 **1- Encapsulation (Kapsülleme):** Sınıflar, verileri ve bunların ilgili fonksiyonları bir arada tutarak kapsülleme sağlar. Bu sayede, kodun diğer bölümleri tarafından doğrudan erişilemeyen veya değiştirilemeyen özellikler oluşturabilirsiniz
+
 **2- Inheritance (Miras):** Sınıflar, başka sınıflardan özellikler ve davranışlar miras alabilirler. Bu sayede, benzer özelliklere sahip ancak bazı farklılıkları olan sınıflar oluşturabilirsiniz. Bu da kodun tekrar kullanımını artırır ve kod yazımını hızlandırır.
+
 **3- Polymorphism (Çok Biçimlilik):**  Sınıflar, aynı adı taşıyan ancak farklı parametreler alan fonksiyonları destekleyerek çok biçimliliği sağlar. Bu sayede, farklı parametrelerle aynı fonksiyonu birden çok kez kullanabilirsiniz.
 
 İşte basit bir sınıf örneği:
