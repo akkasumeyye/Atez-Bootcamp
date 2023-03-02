@@ -358,11 +358,29 @@ interface IProductApi <T>{
     findAll: () => T[];
     findByCategory: (category: string) => T[] | undefined;
     findByText: (input:string) => void;
+    // en ucuz olan ürünü bul
+    findCheapestProduct :() => void
+    // stock adedi 20 den az olanı bul
+    findStockCount20: () => T[] | undefined;
+    // brand name gore ara
+    searchByBrandName: (brand :string) => T[] | undefined;
 }
 
 
 class ProductApi implements IProductApi<IProduct>{
-   
+
+    searchByBrandName (brand: string) : IProduct[] | undefined {
+        return dummyData.filter(d => d.brand === brand)
+    }
+
+    findStockCount20 () : IProduct[] | undefined{
+       return dummyData.filter(i => i.stock < 20)
+    }
+
+    findCheapestProduct() {
+        const min = Math.min(...dummyData.map(({price}) => price))
+        return dummyData.filter(({price}) => price === min)
+    }   
 
     findByCategory(category: string) : IProduct[] | undefined {
         return dummyData.filter((item) => item.category === category);       
@@ -386,7 +404,10 @@ class ProductApi implements IProductApi<IProduct>{
 const product = new ProductApi();
 // console.log(product.findByCategory("laptop"));
 // console.log(product.findAll());
-console.log(product.findByText("black"));
+// console.log(product.findByText("black"));
+// console.log(product.findCheapestProduct());
+// console.log(product.findStockCount20());
+console.log(product.searchByBrandName("HP"));
 
 
 
