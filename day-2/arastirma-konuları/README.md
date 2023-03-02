@@ -55,7 +55,7 @@ Son olarak, dir değişkenine bir tam sayı ataması yapılmıştır. Bu, hata v
 
 ## Deep Dive Functions
 
-https://www.w3schools.com/typescript/typescript_functions.php
+[burada güzel anlatılmış](https://www.w3schools.com/typescript/typescript_functions.php)
 
 ## Deep Dive Inheritance and extends
 
@@ -106,6 +106,10 @@ person.sayHello(); // Hello, my name is John and I'm 30 years old.
 
 ## Architecture filing (Models, enums, classes)
 
+**Models:** Modeller, bir projenin farklı bölümlerinde kullanılabilen ve belirli bir veri yapısını temsil eden kod parçalarıdır. Bu nedenle, doğru bir şekilde tanımlanmaları ve kullanılmaları, bir projenin güvenliğini ve bakımını kolaylaştırabilir.
+
+[Class, Interface ve Models arasındaki farkı anlamak için bu article okuyabilirsin](https://www.codefeetime.com/post/typescript-class-or-interface-for-model/)
+
 ## Hot reload and watching
 
 TypeScript ile çalışırken, kod değişikliklerini yaparken tekrar tekrar kodu derlemek ve uygulamayı yeniden başlatmak gerekebilir. Bu, geliştirme sürecini yavaşlatabilir ve zaman alıcı olabilir. Bu nedenle, "hot reloading" adı verilen bir teknik kullanarak, uygulamayı yeniden başlatmadan kod değişikliklerinin anında yansıtılmasını sağlayabilirsiniz.
@@ -132,10 +136,29 @@ tsc-watch --onSuccess "node dist/index.js" --src src/
 
 Bu komut, herhangi bir değişiklik olduğunda TypeScript kodunu otomatik olarak derler ve derleme başarılı olduğunda `node dist/index.js` komutunu çalıştırır.
 
-Hot reloading, geliştirme sürecini hızlandırabilir ve zaman kazandırabilir. Ancak, büyük projelerde hot reloading, kaynak kodunun büyüklüğüne ve derleme süresine bağlı olarak yavaş olabilir. Bu nedenle, hot reloading'i kullanırken, projenizin ölçeğini ve kaynak kodunuz
+Hot reloading, geliştirme sürecini hızlandırabilir ve zaman kazandırabilir. Ancak, büyük projelerde hot reloading, kaynak kodunun büyüklüğüne ve derleme süresine bağlı olarak yavaş olabilir. Bu nedenle, hot reloading'i kullanırken, projenizin ölçeğini ve kaynak kodunuzdaki karmaşıklığı göz önünde bulundurmanız önemlidir.
 
 ## Commands
 
-Yorumlama kodun başkaları tarafından okunulabilirliğini artıran önemli bir detaydır, componentlerin fonksiyonların veya yaptıgığımız ve ileride kodlarımıza dönüp baktığımızda burada ne yapmışım diye hatırlamak istediğimiz kod parçacıklarına mutlaka yorum eklemeliyiz.
-/**
-*/
+1- `tsc`: TypeScript kodunuzu derleyerek JavaScript'e dönüştürmek için kullanılan ana komuttur. Bu komutu kullanarak, `tsc` ile derlenen TypeScript dosyalarının varsayılan olarak JavaScript dosyalarına dönüştürüleceği bir çıktı dizini belirleyebilirsiniz. Örneğin:
+
+```
+tsc file.ts
+```
+Bu, `file.ts` dosyasını `file.js` olarak derleyecektir.
+
+2- `tsc --watch` : Bu komut, `tsc` komutunu otomatik olarak çalıştırarak, TypeScript kodunuzu otomatik olarak derler. Bu, TypeScript kodunuzu düzenlerken ve her değişiklik yaptığınızda tekrar derlemeniz gerektiğinde zaman kazandırır.
+
+3- `tsc --init` : Bu komut, TypeScript projesi için bir `tsconfig.json` dosyası oluşturmanızı sağlar. Bu dosya, projenizde kullanacağınız derleme ayarlarını tanımlar.
+
+4- `tsc-node` Bu komut, TypeScript kodunu doğrudan çalıştırmanıza olanak tanır. Bu, TypeScript kodunuzu derleme işlemi yapmadan hızlı bir şekilde çalıştırmanızı sağlar. Örneğin:
+
+```
+ts-node file.ts
+```
+
+5- `eslint`: Bu komut, TypeScript kodunuzu statik olarak analiz ederek hataları ve uyumsuzlukları bulmanıza yardımcı olan bir araçtır. eslint kullanarak, TypeScript kodunuzu daha güvenli ve hatasız hale getirebilirsiniz.
+
+6- `jest`: Jest, JavaScript ve TypeScript projeleri için popüler bir test çerçevesidir. TypeScript kodunuzu Jest ile test edebilir ve TypeScript ile yazılmış testler oluşturabilirsiniz.
+
+Bu komutlar, TypeScript kodunuzu derleme, çalıştırma, test etme ve hataları bulma işlemlerinde kullanabileceğiniz temel araçlardır.
