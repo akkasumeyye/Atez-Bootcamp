@@ -6,7 +6,7 @@ Generics kullanarak, bir fonksiyonun belirli bir türde işlem yapmasına değil
 
 Aşağıda, bir dizi değeri tersine çeviren bir fonksiyon örneği verilmiştir:
 
-```
+```typescript
 function reverse<T>(arr: T[]): T[] {
   return arr.reverse();
 }
@@ -30,7 +30,7 @@ Bu örnekte, fonksiyon bir dizi parametresi aldı. Ancak, generics kullanarak, b
 
 TypeScript'te, enum adında bir veri türü vardır. enum'lar, bir dizi sabit değeri temsil etmek için kullanılır ve bu değerlere sembolik isimler atanabilir. İşte basit bir enum örneği:
 
-```
+```typescript
 enum Direction {
   Up,
   Down,
@@ -75,7 +75,7 @@ Sınıflar, aşağıdaki özellikleri sağlayarak kullanışlıdır:
 
 İşte basit bir sınıf örneği:
 
-```
+```typescript
 class Person {
   private name: string;
   private age: number;
@@ -118,19 +118,19 @@ TypeScript'te hot reloading, genellikle bir derleyici (compiler) ve bir izleyici
 
 Bu işlem, bir komut satırı aracı olan `tsc` ile gerçekleştirilebilir. `tsc` komutunu kullanarak, kodunuzu izleyebilir ve değişiklikler yapıldığında otomatik olarak yeniden derleyebilirsiniz. Örneğin, aşağıdaki komutu kullanarak, `src` klasöründe bulunan TypeScript dosyalarını izleyebilirsiniz:
 
-```
+```typescript
 tsc --watch src/*.ts
 ```
 
 Bu komut, `src` klasöründeki tüm TypeScript dosyalarını izleyecek ve herhangi bir değişiklik olduğunda otomatik olarak derleyecektir. Derleme işlemi tamamlandıktan sonra, JavaScript kodunu çalıştırmak için normal bir yöntem kullanabilirsiniz. Örneğin, Node.js kullanarak aşağıdaki komutu kullanabilirsiniz:
 
-```
+```typescript
 node dist/index.js
 ```
 
 Alternatif olarak, `tsc-watch` gibi üçüncü taraf araçlarını da kullanabilirsiniz. Bu araçlar, `tsc`'nin işlevselliğini geliştirir ve daha fazla özellik eklerler. Örneğin, tsc-watch aracını kullanarak, otomatik yeniden yükleme işlemini gerçekleştirmek için ek bir parametre ekleyebilirsiniz. Örneğin, aşağıdaki komutu kullanarak `src` klasöründeki TypeScript dosyalarını izleyebilirsiniz:
 
-```
+```typescript
 tsc-watch --onSuccess "node dist/index.js" --src src/
 ```
 
@@ -142,7 +142,7 @@ Hot reloading, geliştirme sürecini hızlandırabilir ve zaman kazandırabilir.
 
 1- `tsc`: TypeScript kodunuzu derleyerek JavaScript'e dönüştürmek için kullanılan ana komuttur. Bu komutu kullanarak, `tsc` ile derlenen TypeScript dosyalarının varsayılan olarak JavaScript dosyalarına dönüştürüleceği bir çıktı dizini belirleyebilirsiniz. Örneğin:
 
-```
+```typescript
 tsc file.ts
 ```
 Bu, `file.ts` dosyasını `file.js` olarak derleyecektir.
@@ -153,7 +153,7 @@ Bu, `file.ts` dosyasını `file.js` olarak derleyecektir.
 
 4- `tsc-node` Bu komut, TypeScript kodunu doğrudan çalıştırmanıza olanak tanır. Bu, TypeScript kodunuzu derleme işlemi yapmadan hızlı bir şekilde çalıştırmanızı sağlar. Örneğin:
 
-```
+```typescript
 ts-node file.ts
 ```
 
