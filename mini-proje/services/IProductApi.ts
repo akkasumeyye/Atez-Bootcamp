@@ -1,8 +1,26 @@
-import { dummyData } from "./data";
+import { IProduct } from './../models/IProduct';
+import { ITablet} from './../models/ITablet';
+import { ITelevision } from './../models/ITelevision';
+import { ISmartPhone } from '../models/ISmartPhone';
 
-import { IProduct, IProductApi, ILaptop, ISmartPhone, ITablet, ITelevision } from "./model";
+import { dummyData } from "../data";
 
-class ProductApi implements IProductApi<IProduct> {
+
+export interface IProductApi <T>{
+    findAll: () => T[];
+    findByCategory:(category: string) => T[];
+    findByText: (input: string) => T[];
+    //En ucuz ürünü seç
+    findCheapestProduct: () => T[];
+    //Stok 20 den az olan ürünleri getir
+    findStockCountMax20: () => T[] | undefined;
+    //marka ismiyle arama yap
+    searchByBrandName: (brand: string) => T[] | undefined;
+       
+    }
+
+
+export class ProductApi implements IProductApi<IProduct> {
     searchByBrandName (brand: string) : IProduct[] | undefined {
         return dummyData.filter(d => d.brand === brand)
     }
@@ -53,32 +71,3 @@ class ProductApi implements IProductApi<IProduct> {
      return dummyData; 
  }
 } 
-//telefon icin { title, description, price, raiting, color ve thumbnail}
-//laptop icin { title, description, price, raiting, screenDimentions , discount persentage, thumbnail}
-//televizyon icin { title, description, price, raiting thumbnail smarttv, stock}
-//tablet icin { title, description, price, raiting, color, celluar, wifi ve thumbnail}
-
-const product = new ProductApi();
-console.log(product.findByCategory("tablet"));
-// console.log(product.findAll());
-// console.log(product.findByText("black"));
-// console.log(product.findCheapestProduct());
-// console.log(product.findStockCountMax20());
-// console.log(product.searchByBrandName("HP"));
-
-
-
-
-
-
-// NOTLAR
-
-// Birden fazla dosyada calisabilirsiniz.
-// Baska hangi metodlar olabilir? Bir E-Ticaret sistemine yonelik oldugunu goz onunde bulundurarak.
-// Calisabilir durumda ve test edilmis olmasi onemli.
-// Naminglere dikkat edilmesi gereklidir. Isimlendirme sablonu benzer sekilde olmalidir.
-//
-
-
-
-

@@ -1,8 +1,4 @@
 "use strict";
-// Icin Bir Class yazacagiz Calssimizida
-// tum Urunleri donecek bir fonksiyon.
-// tum Telefonlri, tabletleri ve televizyonlari donen bir fonksiyon olacak.
-// Text Search yapabilecek bir fonksiyornumuz olacak.
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -15,12 +11,8 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 exports.__esModule = true;
-// donecegimiz datalar.
-//telefon icin { title, description, price, raiting, color ve thumbnail}
-//laptop icin { title, description, price, raiting, screenDimentions , discount persentage, thumbnail}
-//televizyon icin { title, description, price, raiting thumbnail smarttv, stock}
-//tablet icin { title, description, price, raiting, color, celluar, wifi ve thumbnail}
-var data_1 = require("./data");
+exports.ProductApi = void 0;
+var data_1 = require("../data");
 var ProductApi = /** @class */ (function () {
     function ProductApi() {
     }
@@ -79,20 +71,4 @@ var ProductApi = /** @class */ (function () {
     };
     return ProductApi;
 }());
-//telefon icin { title, description, price, raiting, color ve thumbnail}
-//laptop icin { title, description, price, raiting, screenDimentions , discount persentage, thumbnail}
-//televizyon icin { title, description, price, raiting thumbnail smarttv, stock}
-//tablet icin { title, description, price, raiting, color, celluar, wifi ve thumbnail}
-var product = new ProductApi();
-// console.log(product.findByCategory("tablet"));
-// console.log(product.findAll());
-// console.log(product.findByText("black"));
-// console.log(product.findCheapestProduct());
-// console.log(product.findStockCountMax20());
-console.log(product.searchByBrandName("HP"));
-// NOTLAR
-// Birden fazla dosyada calisabilirsiniz.
-// Baska hangi metodlar olabilir? Bir E-Ticaret sistemine yonelik oldugunu goz onunde bulundurarak.
-// Calisabilir durumda ve test edilmis olmasi onemli.
-// Naminglere dikkat edilmesi gereklidir. Isimlendirme sablonu benzer sekilde olmalidir.
-//
+exports.ProductApi = ProductApi;
