@@ -31,7 +31,7 @@ export interface ITelevision extends IProduct {
 
 export interface IProductApi <T>{
     findAll: () => T[];
-    findByCategory:(category: string) => void;
+    findByCategory:(category: string) => T[];
     findByText: (input: string) => T[];
     //En ucuz ürünü seç
     findCheapestProduct: () => T[];
