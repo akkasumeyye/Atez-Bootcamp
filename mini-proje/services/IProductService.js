@@ -11,18 +11,18 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 exports.__esModule = true;
-exports.ProductApi = void 0;
+exports.ProductService = void 0;
 var data_1 = require("../data");
-var ProductApi = /** @class */ (function () {
-    function ProductApi() {
+var ProductService = /** @class */ (function () {
+    function ProductService() {
     }
-    ProductApi.prototype.searchByBrandName = function (brand) {
+    ProductService.prototype.searchByBrandName = function (brand) {
         return data_1.dummyData.filter(function (d) { return d.brand === brand; });
     };
-    ProductApi.prototype.findStockCountMax20 = function () {
+    ProductService.prototype.findStockCountMax20 = function () {
         return data_1.dummyData.filter(function (i) { return i.stock < 20; });
     };
-    ProductApi.prototype.findCheapestProduct = function () {
+    ProductService.prototype.findCheapestProduct = function () {
         var min = Math.min.apply(Math, data_1.dummyData.map(function (_a) {
             var price = _a.price;
             return price;
@@ -32,7 +32,7 @@ var ProductApi = /** @class */ (function () {
             return price === min;
         });
     };
-    ProductApi.prototype.findByCategory = function (category) {
+    ProductService.prototype.findByCategory = function (category) {
         var data = [];
         data_1.dummyData.filter(function (item) {
             var rest = {
@@ -58,17 +58,19 @@ var ProductApi = /** @class */ (function () {
         });
         return data;
     };
-    ProductApi.prototype.findByText = function (input) {
+    ProductService.prototype.findByText = function (input) {
         return data_1.dummyData.filter(function (item) {
             return Object.values(item)
                 .filter(function (value) { return typeof value === "string" || typeof value === "number"; })
-                .some(function (value) { return typeof value === "string" && value.toUpperCase().includes(input.toUpperCase()); });
+                .some(function (value) {
+                return typeof value === "string" &&
+                    value.toUpperCase().includes(input.toUpperCase());
+            });
         });
     };
-    ;
-    ProductApi.prototype.findAll = function () {
+    ProductService.prototype.findAll = function () {
         return data_1.dummyData;
     };
-    return ProductApi;
+    return ProductService;
 }());
-exports.ProductApi = ProductApi;
+exports.ProductService = ProductService;

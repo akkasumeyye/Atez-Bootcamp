@@ -1,9 +1,9 @@
-import { ProductApi } from "../services/IProductApi";
+import { ProductService } from "../services/IProductService";
 
-const product = new ProductApi();
-console.log(product.findByCategory("tablet"));
-// console.log(product.findAll());
-// console.log(product.findByText("black"));
-// console.log(product.findCheapestProduct());
-// console.log(product.findStockCountMax20());
-// console.log(product.searchByBrandName("HP"));
+const productapi = new ProductService();
+console.log(productapi.findByCategory("tablet"));
+// console.log(productapi.findAll());
+// console.log(productapi.findByText("black"));
+// console.log(productapi.findCheapestProduct());
+// console.log(productapi.findStockCountMax20());
+// console.log(productapi.searchByBrandName("HP"));
