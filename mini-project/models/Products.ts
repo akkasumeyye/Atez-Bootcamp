@@ -389,8 +389,8 @@ class ProductApi implements IProductApi<IProduct>{
     findByText(input: string) {
        return dummyData.filter((item) =>
        Object.values(item)
-      .filter((value) => typeof value === "string")
-      .some((value) => value.includes(input))
+      .filter((value) => typeof value === "string" || typeof value === "number")
+      .some((value) => typeof value === "string" && value.includes(input))
   );
     };
     
