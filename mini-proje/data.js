@@ -1,4 +1,7 @@
-const dummyData = [
+"use strict";
+exports.__esModule = true;
+exports.dummyData = void 0;
+exports.dummyData = [
     {
         id: 1,
         title: "iPhone 8",
@@ -269,7 +272,7 @@ const dummyData = [
         stock: 12,
         brand: "Apple",
         celluar: false,
-        wifi:true,
+        wifi: true,
         color: 'blue',
         category: "tablet",
         thumbnail: "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
@@ -291,7 +294,7 @@ const dummyData = [
         stock: 12,
         brand: "HP",
         celluar: true,
-        wifi:false,
+        wifi: false,
         color: 'black',
         category: "tablet",
         thumbnail: "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
@@ -304,125 +307,3 @@ const dummyData = [
         ]
     }
 ];
-// Icin Bir Class yazacagiz Calssimizida
-// tum Urunleri donecek bir fonksiyon.
-// tum Telefonlri, tabletleri ve televizyonlari donen bir fonksiyon olacak.
-// Text Search yapabilecek bir fonksiyornumuz olacak.
-
-
-// donecegimiz datalar.
-//telefon icin { title, description, price, raiting, color ve thumbnail}
-//laptop icin { title, description, price, raiting, screenDimentions , discount persentage, thumbnail}
-//televizyon icin { title, description, price, raiting thumbnail smarttv, stock}
-//tablet icin { title, description, price, raiting, color, celluar, wifi ve thumbnail}
-
-
-
-
-interface IProduct{
-    title: string;
-    description: string,
-    price: number;
-    rating: number;
-    id: number | string;
-    thumbnail: string
-    category: string
-}
-
-// interface IColor {
-//     color: string;
-// }
-
-
-interface ISmartPhone extends IProduct{
-    color: string;
-}
-
-interface ILaptop extends IProduct{
-    discountPercentage: number,
-    screenDimentions: number,
-}
-
-interface ITablet extends ISmartPhone {
-    cellular: boolean;
-    wifi: boolean;
-}
-
-interface ITelevision extends IProduct {
-    smartTv:boolean;
-    stock: number;
-}
-
-
-interface IProductApi <T>{
-    findAll: () => T[];
-    findByCategory: (category: string) => T[] | undefined;
-    findByText: (input:string) => void;
-    // en ucuz olan ürünü bul
-    findCheapestProduct :() => void
-    // stock adedi 20 den az olanı bul
-    findStockCount20: () => T[] | undefined;
-    // brand name gore ara
-    searchByBrandName: (brand :string) => T[] | undefined;
-}
-
-
-class ProductApi implements IProductApi<IProduct>{
-
-    searchByBrandName (brand: string) : IProduct[] | undefined {
-        return dummyData.filter(d => d.brand === brand)
-    }
-
-    findStockCount20 () : IProduct[] | undefined{
-       return dummyData.filter(i => i.stock < 20)
-    }
-
-    findCheapestProduct() {
-        const min = Math.min(...dummyData.map(({price}) => price))
-        return dummyData.filter(({price}) => price === min)
-    }   
-
-    findByCategory(category: string) : IProduct[] | undefined {
-        return dummyData.filter((item) => item.category === category);       
-    }
-    
-    findByText(input: string) {
-       return dummyData.filter((item) =>
-       Object.values(item)
-      .filter((value) => typeof value === "string" || typeof value === "number")
-      .some((value) => typeof value === "string" && value.includes(input))
-  );
-    };
-    
-    findAll (): IProduct[] {
-        return dummyData; 
-    }
-    
-    
-}
-
-const product = new ProductApi();
-// console.log(product.findByCategory("laptop"));
-// console.log(product.findAll());
-// console.log(product.findByText("black"));
-// console.log(product.findCheapestProduct());
-// console.log(product.findStockCount20());
-console.log(product.searchByBrandName("HP"));
-
-
-
-
-
-
-// NOTLAR
-
-// Birden fazla dosyada calisabilirsiniz.
-// Baska hangi metodlar olabilir? Bir E-Ticaret sistemine yonelik oldugunu goz onunde bulundurarak.
-// Calisabilir durumda ve test edilmis olmasi onemli.
-// Naminglere dikkat edilmesi gereklidir. Isimlendirme sablonu benzer sekilde olmalidir.
-//
-
-
-
-
-

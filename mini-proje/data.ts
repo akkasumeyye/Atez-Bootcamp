@@ -1,4 +1,4 @@
-var dummyData = [
+export const dummyData = [
     {
         id: 1,
         title: "iPhone 8",
@@ -269,7 +269,7 @@ var dummyData = [
         stock: 12,
         brand: "Apple",
         celluar: false,
-        wifi: true,
+        wifi:true,
         color: 'blue',
         category: "tablet",
         thumbnail: "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
@@ -291,7 +291,7 @@ var dummyData = [
         stock: 12,
         brand: "HP",
         celluar: true,
-        wifi: false,
+        wifi:false,
         color: 'black',
         category: "tablet",
         thumbnail: "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
@@ -304,51 +304,3 @@ var dummyData = [
         ]
     }
 ];
-var ProductApi = /** @class */ (function () {
-    function ProductApi() {
-    }
-    ProductApi.prototype.searchByBrandName = function (brand) {
-        return dummyData.filter(function (d) { return d.brand === brand; });
-    };
-    ProductApi.prototype.findStockCount20 = function () {
-        return dummyData.filter(function (i) { return i.stock < 20; });
-    };
-    ProductApi.prototype.findCheapestProduct = function () {
-        var min = Math.min.apply(Math, dummyData.map(function (_a) {
-            var price = _a.price;
-            return price;
-        }));
-        return dummyData.filter(function (_a) {
-            var price = _a.price;
-            return price === min;
-        });
-    };
-    ProductApi.prototype.findByCategory = function (category) {
-        return dummyData.filter(function (item) { return item.category === category; });
-    };
-    ProductApi.prototype.findByText = function (input) {
-        return dummyData.filter(function (item) {
-            return Object.values(item)
-                .filter(function (value) { return typeof value === "string" || typeof value === "number"; })
-                .some(function (value) { return typeof value === "string" && value.includes(input); });
-        });
-    };
-    ;
-    ProductApi.prototype.findAll = function () {
-        return dummyData;
-    };
-    return ProductApi;
-}());
-var product = new ProductApi();
-// console.log(product.findByCategory("laptop"));
-// console.log(product.findAll());
-// console.log(product.findByText("black"));
-// console.log(product.findCheapestProduct());
-// console.log(product.findStockCount20());
-console.log(product.searchByBrandName("HP"));
-// NOTLAR
-// Birden fazla dosyada calisabilirsiniz.
-// Baska hangi metodlar olabilir? Bir E-Ticaret sistemine yonelik oldugunu goz onunde bulundurarak.
-// Calisabilir durumda ve test edilmis olmasi onemli.
-// Naminglere dikkat edilmesi gereklidir. Isimlendirme sablonu benzer sekilde olmalidir.
-//
