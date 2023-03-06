@@ -1,7 +1,6 @@
 import { list } from "./lib/list";
 import { update } from "./lib/update";
 import { check } from "./lib/check";
-import { deneme } from "./lib/deneme";
 import { add } from "./lib/add";
 
 import { Command } from 'commander';
@@ -39,11 +38,5 @@ program
   .action(check);
 
 
- 
-
-  program
-  .command('deneme')
-  .description('Check or uncheck an existing todo item')
-  .action(deneme)  
 
 program.parse();

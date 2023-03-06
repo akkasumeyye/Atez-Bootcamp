@@ -6,14 +6,14 @@ import inquirer from 'inquirer';
 const conf = new Conf({projectName:'todo-project'});
 
 export const update = (id: number): void => {
-  const todoList = conf.get('todo-items') as TodoItem[] | undefined;
+  let todos: TodoItem[] = Array.from(conf.get('todo-project') as Iterable<TodoItem>);
 
-  if (!todoList) {
+  if (!todos) {
     console.log(chalk.red('Todo list is empty.'));
     return;
   }
 
-  const todoItem = todoList.find((item) => item.id === Number(id));
+  const todoItem = todos.find((item) => item.id === Number(id));
   
   if (!todoItem) {
     console.log(chalk.red(`No todo item found with id ${id}`));
@@ -33,7 +33,7 @@ export const update = (id: number): void => {
   }).then((answer: {text: string}) => {
     const newText = answer.text;
     todoItem.text = newText;
-    conf.set('todo-items', todoList);
+    conf.set('todo-project', todos);
     console.log(chalk.green(`Todo item with id ${id} updated: ${newText}`));
   });
 }
