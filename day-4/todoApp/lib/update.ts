@@ -17,6 +17,7 @@ export const update = (id: number): void => {
   const todoItem = todos.find((item) => item.id === Number(id));
   
   if (!todoItem) {
+
     console.log(chalk.red(`No todo item found with id ${id}`));
     return;
   }
