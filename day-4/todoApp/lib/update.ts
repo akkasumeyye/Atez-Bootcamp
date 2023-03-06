@@ -11,6 +11,7 @@ export const update = (id: number): void => {
   if (!todos) {
     console.log(chalk.red('Todo list is empty.'));
     return;
+    
   }
 
   const todoItem = todos.find((item) => item.id === Number(id));
