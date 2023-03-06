@@ -1,4 +1,8 @@
-import { ProductService } from "../services/IProductService";
+import { ProductService } from "../services/ProductService";
+import { ITablet } from "../models/ITablet";
+import { ISmartPhone } from "../models/ISmartPhone";
+import { ITelevision } from "../models/ITelevision";
+import { ILaptop } from "../models/ILaptop";
 
 export class ProductApi {
     service:ProductService
@@ -30,9 +34,16 @@ export class ProductApi {
     
 }
 const productapi = new ProductService();
-// console.log(productapi.findByCategory("tablet"));
 // console.log(productapi.findAll());
-console.log(productapi.findByText("black"));
+// console.log(productapi.findByText("black"));
 // console.log(productapi.findCheapestProduct());
 // console.log(productapi.findStockCountMax20());
 // console.log(productapi.searchByBrandName("HP"));
+
+// console.log(productapi.findByCategory<ISmartPhone>("smartphones"));
+// console.log(productapi.findByCategory<ITelevision>("television"));
+// console.log(productapi.findByCategory<ITablet>("smartphones"));
+console.log(productapi.findByCategory<ILaptop>("laptop"));
+
+
+

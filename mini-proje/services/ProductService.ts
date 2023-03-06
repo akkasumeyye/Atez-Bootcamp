@@ -32,38 +32,9 @@ export class ProductService implements IProductService<IProduct> {
   }
 
   findByCategory<T extends IProduct>(category: string): IProduct[] {
-    let data: T[] = [];
-    dummyData.filter((item) => {
-      let rest = {
-        title: item.title,
-        description: item.description,
-        rating: item.rating,
-        price: item.price,
-        id: item.id,
-        thumbnail: item.thumbnail,
-      };
-      if (item.category === category && category === "smartphones") {
-        data.push({ ...(rest as T), color: item.color });
-      } else if (item.category === category && category === "laptop") {
-        data.push({
-          ...(rest as T),
-          discountPercentage: item.discountPercentage,
-          screenDimentions: item.screenDimentions,
-        });
-      } else if (item.category === category && category === "tablet") {
-        data.push({
-          ...(rest as T),
-          color: item.color,
-          celluar: item.celluar,
-          wifi: item.wifi,
-        });
-      } else if (item.category === category && item.category === "television") {
-        data.push({ ...(rest as T), smartTv: item.smartTv, stock: item.stock });
-      }
-    });
-
-    return data;
-  }
+    return dummyData.filter(item => item.category === category);
+ }
+ 
   findByText(input: string) {
     return dummyData.filter((item) =>
       Object.values(item)
