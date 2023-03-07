@@ -11,9 +11,11 @@ const program = new Command();
 //list task
 
 program
-.command('list')
-.description("List all todo items")
-.action(list);
+  .command('list')
+  .description('List all todo items')
+  .option('-g, --group <group>', 'Filter by group')
+  .action(({ group }) => list(group));
+
 
 // add task
 
