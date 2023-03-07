@@ -2,6 +2,7 @@ import { list } from "./lib/list";
 import { update } from "./lib/update";
 import { check } from "./lib/check";
 import { add } from "./lib/add";
+import { deleteTodo } from "./lib/delete";
 
 import { Command } from 'commander';
 
@@ -39,6 +40,10 @@ program
   .description('Check or uncheck existing todo items')
   .action(check);
 
+// delete
 
+program.command('delete')
+.description('Delete an existing todo item')
+.action(deleteTodo);
 
 program.parse();
