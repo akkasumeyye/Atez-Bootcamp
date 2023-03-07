@@ -4,4 +4,5 @@ export interface TodoItem {
   text: string;
   checked: boolean;
   createdDate: number;
+  group: string;
 } 
