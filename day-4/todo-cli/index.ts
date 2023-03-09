@@ -5,8 +5,12 @@ import { add } from "./lib/add";
 import { deleteTodo } from "./lib/delete";
 
 import { Command } from 'commander';
+const figlet = require("figlet");
 
 const program = new Command();
+console.log(figlet.textSync("TODO  CLI"));
+console.log("                      ");
+console.log("                      ");
 
 
 //list task
