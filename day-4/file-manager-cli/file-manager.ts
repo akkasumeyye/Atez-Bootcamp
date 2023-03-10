@@ -1,6 +1,5 @@
 
 import commander from 'commander';
-import FileManager from './index';
 import { getOSInfo } from "./lib/getOsInfo";
 import { renameFile } from './lib/rename';
 import { cd } from './lib/cd';
@@ -14,7 +13,6 @@ const program = new commander.Command();
 
 
 console.log(figlet.textSync("File Manager"));
-const fileManager = new FileManager();
 
 
 program

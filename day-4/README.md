@@ -96,4 +96,4 @@ Git Commit Conventions kullanmanın pek çok avantajı vardır:
 
 5. Proje geliştiricileri arasında uyum: Git Commit Conventions, bir proje için belirli bir stil kılavuzu belirler. Bu sayede, proje geliştiricileri arasında uyum sağlanır ve projenin daha tutarlı bir şekilde geliştirilmesi sağlanır.
 
-Bu nedenlerden dolayı, Git Commit Conventions kullanmak yazılım geliştirme sürecinde çok önemlidir ve daha iyi bir yazılım geliştirme deneyimi sunar..
+Bu nedenlerden dolayı, Git Commit Conventions kullanmak yazılım geliştirme sürecinde çok önemlidir ve daha iyi bir yazılım geliştirme deneyimi sunar.
