@@ -67,7 +67,9 @@ Semantrik sürümleme (Semantic Versioning), yazılım sürümlerinin anlamlı b
 Semantrik sürümleme, sürüm numaralarını üç parça halinde tanımlar: major, minor ve patch. Bu numaralar, yazılımın ne kadar büyük bir değişiklik geçirdiğini belirtir.
 
 &nbsp; &nbsp; &#9702; Major: Yazılımın yapısal değişiklikler geçirdiği durumlarda artar. Geriye dönük uyumsuz değişiklikler içerdiği anlamına gelir.
+
 &nbsp; &nbsp; &#9702; Minor: Yazılımın geriye dönük uyumlu yeni özellikler veya fonksiyonlar eklediği durumlarda artar.
+
 &nbsp; &nbsp; &#9702; Patch: Yazılımın geriye dönük uyumlu hata düzeltmeleri yaptığı durumlarda artar.
 
 Sürüm numaraları, noktalarla ayrılır ve örnek olarak "1.2.3" şeklinde gösterilir. Bu numaralar, artan sırayla major, minor ve patch sürüm numaralarını temsil eder.
