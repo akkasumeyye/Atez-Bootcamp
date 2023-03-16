@@ -25,6 +25,7 @@ Düzenli ifadeler, Node.js'deki String nesnesinin match() ve replace() metodlar�
 
 * HTTP (Hypertext Transfer Protocol) durum kodları, sunucuların istemcilere (örneğin web tarayıcılara) bir işlem veya istek yanıtı olarak gönderdiği üç haneli kodlardır. İşlem başarılı veya başarısız olsa da, istemcilerin işlemle ilgili durumu anlamalarına yardımcı olur. İşte bazı yaygın HTTP durum kodları ;
 &nbsp;
+
   &nbsp; &nbsp; &#9702; 200 OK: İstek başarılı oldu ve sunucu istenilen kaynakları başarıyla iletti.
 
   &nbsp; &nbsp; &#9702; 201 Created: İstek başarılı oldu ve sunucu istemcinin talep ettiği bir kaynağı başarıyla oluşturdu.
