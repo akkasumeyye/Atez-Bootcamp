@@ -25,13 +25,19 @@ Düzenli ifadeler, Node.js'deki String nesnesinin match() ve replace() metodlar�
 
 * HTTP (Hypertext Transfer Protocol) durum kodları, sunucuların istemcilere (örneğin web tarayıcılara) bir işlem veya istek yanıtı olarak gönderdiği üç haneli kodlardır. İşlem başarılı veya başarısız olsa da, istemcilerin işlemle ilgili durumu anlamalarına yardımcı olur. İşte bazı yaygın HTTP durum kodları ;
 &nbsp;
-    &nbsp; &nbsp; &#9702; 200 OK: İstek başarılı oldu ve sunucu istenilen kaynakları başarıyla iletti.
-    &nbsp; &nbsp; &#9702; 201 Created: İstek başarılı oldu ve sunucu istemcinin talep ettiği bir kaynağı başarıyla oluşturdu.
-    &nbsp; &nbsp; &#9702; 400 Bad Request: İstek yapılamadı veya istek yapılırken bir hata oluştu. Bu durumda, istek tamamlanamadı ve istemci hatanın ne olduğunu belirten bir mesaj alır.
-    &nbsp; &nbsp; &#9702; 401 Unauthorized: İstemci, kimlik doğrulama yapmadan kaynaklara erişmeye çalıştı. Bu durumda, istemci kaynaklara erişemeyecek ve kimlik doğrulama yapması gerektiği belirten bir hata mesajı alır.
-    &nbsp; &nbsp; &#9702; 403 Forbidden: İstemci, kaynaklara erişmeye çalıştı, ancak sunucu bu erişime izin vermedi. Bu durumda, istemci kaynaklara erişemeyecek ve bir hata mesajı alır.
-    &nbsp; &nbsp; &#9702; 404 Not Found: Sunucu istenilen kaynağı bulamadı. Bu durumda, istemci kaynakların mevcut olmadığını belirten bir hata mesajı alır.
-    &nbsp; &nbsp; &#9702; 500 Internal Server Error: Sunucu, istemci tarafından yapılan isteği yerine getiremedi ve bir hata oluştu. Bu durumda, istemci genellikle bir sunucu hatası olduğunu belirten bir hata mesajı alır.
+  &nbsp; &nbsp; &#9702; 200 OK: İstek başarılı oldu ve sunucu istenilen kaynakları başarıyla iletti.
+
+  &nbsp; &nbsp; &#9702; 201 Created: İstek başarılı oldu ve sunucu istemcinin talep ettiği bir kaynağı başarıyla oluşturdu.
+    
+  &nbsp; &nbsp; &#9702; 400 Bad Request: İstek yapılamadı veya istek yapılırken bir hata oluştu. Bu durumda, istek tamamlanamadı ve istemci hatanın ne olduğunu belirten bir mesaj alır.
+  
+  &nbsp; &nbsp; &#9702; 401 Unauthorized: İstemci, kimlik doğrulama yapmadan kaynaklara erişmeye çalıştı. Bu durumda, istemci kaynaklara erişemeyecek ve kimlik doğrulama yapması gerektiği belirten bir hata mesajı alır.
+    
+  &nbsp; &nbsp; &#9702; 403 Forbidden: İstemci, kaynaklara erişmeye çalıştı, ancak sunucu bu erişime izin vermedi. Bu durumda, istemci kaynaklara erişemeyecek ve bir hata mesajı alır.
+    
+  &nbsp; &nbsp; &#9702; 404 Not Found: Sunucu istenilen kaynağı bulamadı. Bu durumda, istemci kaynakların mevcut olmadığını belirten bir hata mesajı alır.
+    
+  &nbsp; &nbsp; &#9702; 500 Internal Server Error: Sunucu, istemci tarafından yapılan isteği yerine getiremedi ve bir hata oluştu. Bu durumda, istemci genellikle bir sunucu hatası olduğunu belirten bir hata mesajı alır.
 
 Bu sadece bazı örneklerdir ve HTTP durum kodları farklı senaryolarda farklı şekillerde kullanılabilir. Bu durum kodlarının amacı, sunucuların istemcilerle etkileşim sırasında birbirleriyle iletişim kurmasını kolaylaştırmak ve hataları tanımlamak için standart bir yol sağlamaktır.
 
