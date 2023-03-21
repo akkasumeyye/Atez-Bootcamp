@@ -9,6 +9,7 @@ This repository includes the Atez Botcamp education program notes that I attende
 - Generics , Interfaces , Enum
 #### [day 4](https://github.com/akkasumeyye/Atez-Bootcamp/tree/main/day-4)
 - how to create CLI and using MJS, CJS file system , introduction nodejs modules amd builtin functions
+  - Todo-CLI and File Management CLI
   - Regex , semantic versioning and Git Commit Conventions 
 #### [day 5](https://github.com/akkasumeyye/Atez-Bootcamp/tree/main/day-5)
 - Asynchronous
