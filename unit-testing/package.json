@@ -1,0 +1,18 @@
+{
+  "name": "day-9",
+  "version": "1.0.0",
+  "description": "- mocha/chai ve sinon nyc covarage",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha './specs/**/*.spec.js' --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.3.7",
+    "chai-as-promised": "^7.1.1",
+    "mocha": "^10.2.0",
+    "sinon": "^15.0.3"
+  }
+}
