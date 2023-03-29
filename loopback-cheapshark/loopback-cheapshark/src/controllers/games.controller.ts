@@ -55,24 +55,33 @@ async createGame(
   return this.gamesRepository.create(game);
 }
 
-// fiyat düşünce alarm olustur
+// fiyat alarmı olustur
+
 @post('/alerts')
 async getAlerts(
+  @param.query.string('action') action:string,
   @param.query.string('email') email:string,
   @param.query.number('gameID') gameID:number,
   @param.query.number('price') price:number,
-  @param.query.string('action') action:string
-): Promise<boolean>  {
-  return await this.gameService.createAlarm(action,email,gameID,price)
+): Promise<string>  {
+  const alert = await this.gameService.createAlarm(action,email,gameID,price);
+
+  // Nodemailer ile mail gönderme
+
+  if(alert) {
+     // burada mail gönderilir
+  }
+  return "Alarm olusturuldu";
+
 }
 
 // multiple oyun girince datayı getir
 
 @post('/game/ids={ids}')
 async getMultipleGames(
- @requestBody() ids: number
+ @requestBody() ids: number[]
 ) : Promise<Games[]> {
-  return await this.gameService.getMultipleGames(ids)
+  return await this.gameService.getMultipleGames(...ids)
 }
 }
 

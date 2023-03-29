@@ -26,7 +26,8 @@ export class StoresController {
     return this.storeService.AllStores();
   }
 
-  // en ucuz ve güncel oyun hangi soreda ise onun datasını getir
+  // aranan oyun adı (title) en ucuz ve güncel oyun hangi soreda ise onun datasını getir
+  // ama tam oyun ismi girmelisini 'LEGO Batman' gibi
 
   @get('deals')
   async findDealsByTitle(
