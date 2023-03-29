@@ -9,7 +9,7 @@ export interface GameService {
   // json file.
   findByTitle(title: string): Promise<Games>  ;
   createAlarm(action:string ,email: string , gameID: number , price:number): Promise<boolean>;
-  getMultipleGames(...ids: number[]): Promise<Games[]>;
+  getMultipleGames(ids: string): Promise<Games[]>;
 }
 
 export class GameServiceProvider implements Provider<GameService> {
