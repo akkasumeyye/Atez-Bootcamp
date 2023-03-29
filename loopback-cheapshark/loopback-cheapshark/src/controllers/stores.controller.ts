@@ -40,20 +40,15 @@ export class StoresController {
       dealObject.internalName = deal.internalName;
       dealObject.title = deal.title;
       dealObject.releaseDate = deal.releaseDate;
-      dealObject.storesId = deal.storesId;
+      dealObject.storeID = deal.storeID;
       dealObject.salePrice = deal.salePrice;
       dealObject.thumb = deal.thumb;
       await this.dealsRepository.create(dealObject);
     }
 
   return await this.dealsRepository.find({
-    include: [{
-      relation: 'stores',
-      scope: {
-        fields: ['salePrice', 'storeID' 'storeName'],
+        fields: ['salePrice', 'storeID'],
         order: ['salePrice ASC', 'releaseDate DESC'],
-      },
-    }],
     where: {
       title: { like: `%${title}%` }
     },

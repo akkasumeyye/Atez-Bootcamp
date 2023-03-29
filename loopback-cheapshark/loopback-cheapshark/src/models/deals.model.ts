@@ -51,10 +51,12 @@ export class Deals extends Entity {
   })
   salePrice?: string;
 
-  @belongsTo(() => Stores)
-  storesId: number;
-
-  constructor(data?: Partial<Deals>) {
+  @property({
+    type: 'number',
+  })
+  storeID?: number;
+  
+ constructor(data?: Partial<Deals>) {
     super(data);
   }
 }
