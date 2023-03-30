@@ -79,7 +79,6 @@ async getAlerts(
 
 // multiple oyun girince datayı getir
 
-
 @post('/games')
 async getMultipleGames(
 //  @requestBody() ids: number[]

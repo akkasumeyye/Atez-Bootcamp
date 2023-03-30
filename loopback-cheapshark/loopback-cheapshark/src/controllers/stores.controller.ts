@@ -54,12 +54,12 @@ async saveDeals(dealsToSave: Deals[]): Promise<void> {
   }
 }
 
-async findAndSortDeals(title: string): Promise<Deals[]> {
+async findAndSortDeals(searchTitle: string): Promise<Deals[]> {
   const sortedDeals = await this.dealsRepository.find({
     fields: ['salePrice', 'storeID'],
     order: ['salePrice ASC', 'releaseDate DESC'],
     where: {
-      title: { like: `%${title}%` }
+      title: { ilike: `%${searchTitle}%` }
     },
   });
   return sortedDeals;
