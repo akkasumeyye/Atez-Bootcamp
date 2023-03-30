@@ -41,6 +41,12 @@ export class StoresController {
 async saveDeals(dealsToSave: Deals[]): Promise<void> {
   const dealObjectTemplate = new Deals();
   for (const foundDeal of dealsToSave) {
+    const existingDeal = await this.dealsRepository.findOne({
+      where: { title: foundDeal.title }
+    });
+    if (existingDeal) {
+      continue; // skip saving the deal if it already exists in the repository
+    }
     const dealObject = new Deals();
     dealObject.normalPrice = foundDeal.normalPrice;
     dealObject.steamAppID = foundDeal.steamAppID;
@@ -53,6 +59,7 @@ async saveDeals(dealsToSave: Deals[]): Promise<void> {
     await this.dealsRepository.create(dealObject);
   }
 }
+
 
 async findAndSortDeals(searchTitle: string): Promise<Deals[]> {
   const sortedDeals = await this.dealsRepository.find({
