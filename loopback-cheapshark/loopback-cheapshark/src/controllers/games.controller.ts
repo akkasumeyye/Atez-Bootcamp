@@ -56,7 +56,6 @@ async createGame(
 }
 
 // fiyat alarmı olustur
-// url http://[::1]:3000/alerts?action=set&email=hello%40gmail.com&gameID=34&price=14.99 olarak heliyor maildeki @ işareti yerine %40 geldiğinden datayı cekemiyor
 
 
 @get('/alerts')
@@ -79,10 +78,9 @@ async getAlerts(
 
 
 // multiple oyun girince datayı getir
-// url http://[::1]:3000/game?ids=128%2C129%2C130 olarak geliyor, aralarında virgül yerine %2C koyduğundan data gelmiyor ama dogru :)
 
 
-@post('/game')
+@post('/games')
 async getMultipleGames(
 //  @requestBody() ids: number[]
 @param.query.string('ids') ids: string
