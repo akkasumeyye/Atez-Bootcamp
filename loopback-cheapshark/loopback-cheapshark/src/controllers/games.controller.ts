@@ -59,23 +59,24 @@ async createGame(
 // url http://[::1]:3000/alerts?action=set&email=hello%40gmail.com&gameID=34&price=14.99 olarak heliyor maildeki @ işareti yerine %40 geldiğinden datayı cekemiyor
 
 
-@post('/alerts')
+@get('/alerts')
 async getAlerts(
-  @param.query.string('action') action:string,
-  @param.query.string('email') email:string,
-  @param.query.number('gameID') gameID:number,
-  @param.query.number('price') price:number,
-): Promise<string>  {
-  const alert = await this.gameService.createAlarm(action,email,gameID,price);
+  @param.query.string('action') action: string,
+  @param.query.string('email') email: string,
+  @param.query.number('gameID') gameID: number,
+  @param.query.number('price') price: number,
+): Promise<string> {
 
-  // Nodemailer ile mail gönderme
+  const alert = await this.gameService.createAlarm(action, email, gameID, price);
 
-  if(alert) {
-     // burada mail gönderilir
+  // Send email with Nodemailer
+  if (alert) {
+     // code to send email
   }
-  return "Alarm olusturuldu";
 
+  return "Alarm created";
 }
+
 
 // multiple oyun girince datayı getir
 // url http://[::1]:3000/game?ids=128%2C129%2C130 olarak geliyor, aralarında virgül yerine %2C koyduğundan data gelmiyor ama dogru :)
@@ -89,3 +90,4 @@ async getMultipleGames(
   return await this.gameService.getMultipleGames(ids)
 }
 }
+

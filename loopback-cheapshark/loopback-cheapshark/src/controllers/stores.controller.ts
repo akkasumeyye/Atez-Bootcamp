@@ -26,35 +26,45 @@ export class StoresController {
     return this.storeService.AllStores();
   }
 
-  // aranan oyun adı (title) en ucuz ve güncel oyun hangi soreda ise onun datasını getir
-  // ama tam oyun ismi girmelisini 'LEGO Batman' gibi
-
-  @get('deals')
+  // aranan oyun adı (title) en ucuz ve güncel oyun hangi storeda ise onun datasını getir
+  // ama tam oyun ismi girmelisiniz 'LEGO Batman' gibi
+@get('deals')
   async findDealsByTitle(
-    @param.query.string('title') title: string,
-  ): Promise<number | string | Object | undefined> {
-    const dealsResult = await this.dealsService.findDealsByTitle(title);
-      const dealObject = new Deals();
-      for (const deal of dealsResult) {
-      dealObject.normalPrice = deal.normalPrice;
-      dealObject.steamAppID = deal.steamAppID;
-      dealObject.internalName = deal.internalName;
-      dealObject.title = deal.title;
-      dealObject.releaseDate = deal.releaseDate;
-      dealObject.storeID = deal.storeID;
-      dealObject.salePrice = deal.salePrice;
-      dealObject.thumb = deal.thumb;
-      await this.dealsRepository.create(dealObject);
-    }
+  @param.query.string('title') searchTitle: string,
+): Promise<number | string | Object | undefined> {
+  const foundDeals = await this.dealsService.findDealsByTitle(searchTitle);
+  await this.saveDeals(foundDeals);
+  const sortedDeals = await this.findAndSortDeals(searchTitle);
+  return sortedDeals;
+}
 
-  return await this.dealsRepository.find({
-        fields: ['salePrice', 'storeID'],
-        order: ['salePrice ASC', 'releaseDate DESC'],
+async saveDeals(dealsToSave: Deals[]): Promise<void> {
+  const dealObjectTemplate = new Deals();
+  for (const foundDeal of dealsToSave) {
+    const dealObject = new Deals();
+    dealObject.normalPrice = foundDeal.normalPrice;
+    dealObject.steamAppID = foundDeal.steamAppID;
+    dealObject.internalName = foundDeal.internalName;
+    dealObject.title = foundDeal.title;
+    dealObject.releaseDate = foundDeal.releaseDate;
+    dealObject.storeID = foundDeal.storeID;
+    dealObject.salePrice = foundDeal.salePrice;
+    dealObject.thumb = foundDeal.thumb;
+    await this.dealsRepository.create(dealObject);
+  }
+}
+
+async findAndSortDeals(title: string): Promise<Deals[]> {
+  const sortedDeals = await this.dealsRepository.find({
+    fields: ['salePrice', 'storeID'],
+    order: ['salePrice ASC', 'releaseDate DESC'],
     where: {
       title: { like: `%${title}%` }
     },
   });
-  }
+  return sortedDeals;
+}
+
 }
 
 

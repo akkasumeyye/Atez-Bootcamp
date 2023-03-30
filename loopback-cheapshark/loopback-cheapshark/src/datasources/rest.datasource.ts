@@ -49,8 +49,8 @@ const config = {
     },
     {
       template: {
-        method: 'POST',
-        url: '    https://www.cheapshark.com/api/1.0/alerts?action={action}&{email}&gameID={gameID}&price={price}',
+        method: 'GET',
+        url: '    https://www.cheapshark.com/api/1.0/alerts?action={action}&email={email}&gameID={gameID}&price={price}',
       },
       functions: {
         createAlarm: ['action','email', 'gameID' , 'price'],
