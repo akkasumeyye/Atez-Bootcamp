@@ -12,7 +12,7 @@ describe('GamesController', () => {
   
   let findByTitle : sinon.SinonStub;
   let createAlarm : sinon.SinonStub;
-  let getMultipleGames : sinon.SinonStub;
+  // let getMultipleGames : sinon.SinonStub;
   let gamesController : GamesController;
 
   beforeEach(async () => {
@@ -20,7 +20,7 @@ describe('GamesController', () => {
     gameService = {findByTitle: sinon.stub(), createAlarm: sinon.stub(), getMultipleGames: sinon.stub()};
     findByTitle = gameService.findByTitle as sinon.SinonStub;
     createAlarm = gameService.createAlarm as sinon.SinonStub;
-    getMultipleGames = gameService.getMultipleGames as sinon.SinonStub;
+    // getMultipleGames = gameService.getMultipleGames as sinon.SinonStub;
     gamesController = new GamesController(gamesRepository, gameService, dealsRepository);
   });
 

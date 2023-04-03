@@ -1,6 +1,6 @@
-import {StoreService, StoreServiceProvider } from './services/store-service.service';
-import {DealsService,  DealsServiceProvider } from './services/deals-service.service';
-import { GameService , GameServiceProvider } from './services';
+import { StoreServiceProvider } from './services/store-service.service';
+import { DealsServiceProvider } from './services/deals-service.service';
+import { GameServiceProvider } from './services/game-service.service';
 import {BootMixin} from '@loopback/boot';
 import {ApplicationConfig} from '@loopback/core';
 import {
@@ -12,7 +12,6 @@ import {RestApplication} from '@loopback/rest';
 import {ServiceMixin} from '@loopback/service-proxy';
 import path from 'path';
 import {MySequence} from './sequence';
-import { GamesController } from './controllers';
 
 export {ApplicationConfig};
 

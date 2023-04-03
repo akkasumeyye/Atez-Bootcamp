@@ -1,7 +1,5 @@
-import { Stores } from './../../../models/stores.model';
 import { Deals } from '../../../models';
 import { StoreService } from './../../../services/store-service.service';
-import { SinonStubbedInstance } from 'sinon';
 import { StoresController } from './../../../controllers/stores.controller';
 import { StoresRepository } from '../../../repositories';
 import { DealsRepository } from './../../../repositories/deals.repository';
@@ -21,8 +19,6 @@ describe('StoresController', () => {
   let storesService : StoreService;
 
   let findDealsByTitle : sinon.SinonStub;
-  let allDeals : sinon.SinonStub;
-  let findStoreByCheapestPrice : sinon.SinonStub;
   let allStores : sinon.SinonStub;
   let controller : StoresController;
 
@@ -32,8 +28,6 @@ describe('StoresController', () => {
     dealsService = {findDealsByTitle: sinon.stub() , allDeals: sinon.stub() , findStoreByCheapestPrice: sinon.stub()};
     storesService = {allStores : sinon.stub()};
     findDealsByTitle = dealsService.findDealsByTitle as sinon.SinonStub;
-    allDeals = dealsService.allDeals as sinon.SinonStub;
-    findStoreByCheapestPrice = dealsService.findStoreByCheapestPrice as sinon.SinonStub;
     allStores = storesService.allStores as sinon.SinonStub;
     controller = new StoresController(dealsRepo, dealsService , storesRepo , storesService );
   });
@@ -95,7 +89,7 @@ describe('StoresController', () => {
       }
 
       // Ensure that the findDealsByTitle method was called with the correct arguments
-      expect(findDealsByTitle.calledOnceWith(searchTitle)).to.be.true;
+      return expect(findDealsByTitle.calledOnceWith(searchTitle)).to.be.true;
     });
   });
 
