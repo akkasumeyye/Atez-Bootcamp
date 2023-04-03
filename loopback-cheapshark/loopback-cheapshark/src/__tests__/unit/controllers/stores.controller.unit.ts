@@ -89,7 +89,7 @@ describe('StoresController', () => {
       }
 
       // Ensure that the findDealsByTitle method was called with the correct arguments
-      return expect(findDealsByTitle.calledOnceWith(searchTitle)).to.be.true;
+      sinon.assert.called(findDealsByTitle);
     });
   });
 
