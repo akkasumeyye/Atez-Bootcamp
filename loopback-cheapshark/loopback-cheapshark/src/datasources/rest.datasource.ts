@@ -17,7 +17,7 @@ const config = {
         url: 'https://www.cheapshark.com/api/1.0/stores',
       },
       functions: {
-        AllStores: [],
+        allStores: [],
       },
     },
     {

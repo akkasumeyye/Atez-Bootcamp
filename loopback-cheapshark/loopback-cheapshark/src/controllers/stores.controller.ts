@@ -1,3 +1,4 @@
+import { Stores } from './../models/stores.model';
 import { StoreService } from '../services/store-service.service';
 import { DealsService } from '../services/deals-service.service';
 import { StoresRepository } from '../repositories/stores.repository';
@@ -5,7 +6,7 @@ import { Deals } from '../models/deals.model';
 import { DealsRepository } from '../repositories/deals.repository';
 import { inject } from '@loopback/core';
 import { repository } from '@loopback/repository';
-import {get, param, post, requestBody} from '@loopback/rest';
+import {get, param} from '@loopback/rest';
 
 export class StoresController {
   constructor(
@@ -22,16 +23,16 @@ export class StoresController {
   //bütün store bilgilerini getir
 
   @get('/stores')
-  find() {
-    return this.storeService.AllStores();
+  getAllStores() : Promise<Stores[]> {
+    return this.storeService.allStores();
   }
 
   // aranan oyun adı (title) en ucuz ve güncel oyun hangi storeda ise onun datasını getir
-  // ama tam oyun ismi girmelisiniz 'LEGO Batman' gibi
+
 @get('deals')
   async findDealsByTitle(
   @param.query.string('title') searchTitle: string,
-): Promise<number | string | Object | undefined> {
+): Promise<Deals[]> {
   const foundDeals = await this.dealsService.findDealsByTitle(searchTitle);
   await this.saveDeals(foundDeals);
   const sortedDeals = await this.findAndSortDeals(searchTitle);
@@ -39,7 +40,6 @@ export class StoresController {
 }
 
 async saveDeals(dealsToSave: Deals[]): Promise<void> {
-  const dealObjectTemplate = new Deals();
   for (const foundDeal of dealsToSave) {
     const existingDeal = await this.dealsRepository.findOne({
       where: { title: foundDeal.title }

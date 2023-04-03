@@ -1,5 +1,5 @@
 import { Games } from './../models/games.model';
-import {inject, injectable, Provider} from '@loopback/core';
+import {inject ,Provider} from '@loopback/core';
 import {getService} from '@loopback/service-proxy';
 import {RestDataSource} from '../datasources';
 
@@ -10,6 +10,13 @@ export interface GameService {
   findByTitle(title: string): Promise<Games>  ;
   createAlarm(action:string ,email: string , gameID: number , price:number): Promise<boolean>;
   getMultipleGames(ids: string): Promise<Games[]>;
+}
+
+export interface IGetAlarm {
+  action:string;
+  email:string;
+  gameID:number;
+  price:number;
 }
 
 export class GameServiceProvider implements Provider<GameService> {

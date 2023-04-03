@@ -1,24 +1,14 @@
 import { DealsRepository } from './../repositories/deals.repository';
-import {GameService} from './../services/game-service.service';
+import { GameService} from './../services/game-service.service';
 import {inject} from '@loopback/core';
 import {
-  Count,
-  CountSchema,
-  Filter,
-  FilterExcludingWhere,
   repository,
-  Where,
 } from '@loopback/repository';
 import {
   post,
   param,
   get,
-  getModelSchemaRef,
-  patch,
-  put,
-  del,
   requestBody,
-  response,
 } from '@loopback/rest';
 import {Games} from '../models';
 import {GamesRepository} from '../repositories';
@@ -48,7 +38,7 @@ export class GamesController {
 async createGame(
   @requestBody() game: Omit<Games, 'id'>,
 ): Promise<Games> {
-  let existingGame = await this.gamesRepository.findOne({ where: { external: game.external } });
+  const existingGame = await this.gamesRepository.findOne({ where: { external: game.external } });
   if (existingGame) {
     throw new Error('Game with this title already exists');
   }
@@ -84,7 +74,8 @@ async getMultipleGames(
 //  @requestBody() ids: number[]
 @param.query.string('ids') ids: string
 ) : Promise<Games[]> {
-  return await this.gameService.getMultipleGames(ids)
+  const games = await this.gameService.getMultipleGames(ids);
+  return games;
 }
 }
 

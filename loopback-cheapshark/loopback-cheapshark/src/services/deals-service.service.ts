@@ -1,4 +1,3 @@
-import { Filter } from '@loopback/repository';
 import { Deals } from './../models/deals.model';
 import {inject, Provider} from '@loopback/core';
 import {getService} from '@loopback/service-proxy';
@@ -9,9 +8,10 @@ export interface DealsService {
   // mapped to REST/SOAP/gRPC operations as stated in the datasource
   // json file.
   findDealsByTitle(title : string): Promise<Deals[]>;
-  AllDeals () : Promise<Deals[]>;
+  allDeals () : Promise<Deals[]>;
   findStoreByCheapestPrice(storeID : number | undefined , upperPrice:string | undefined): Promise<object>
 }
+
 
 export class DealsServiceProvider implements Provider<DealsService> {
   constructor(

@@ -1,4 +1,3 @@
-;
 
 export * from './stores.model';
 export * from './games.model';

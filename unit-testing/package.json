@@ -4,8 +4,10 @@
   "description": "- mocha/chai ve sinon nyc covarage",
   "main": "index.js",
   "scripts": {
-    "test": "mocha './specs/**/*.spec.js' --watch"
+    "test": "mocha './specs/**/*.spec.js'",
+    "coverage": "nyc --reporter=lcov --reporter=text npm run test"
   },
+
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -13,6 +15,7 @@
     "chai": "^4.3.7",
     "chai-as-promised": "^7.1.1",
     "mocha": "^10.2.0",
+    "nyc": "^15.1.0",
     "sinon": "^15.0.3"
   }
 }
