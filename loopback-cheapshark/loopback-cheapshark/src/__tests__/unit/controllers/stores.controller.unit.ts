@@ -89,7 +89,7 @@ describe('StoresController', () => {
       }
 
       // Ensure that the findDealsByTitle method was called with the correct arguments
-      sinon.assert.called(findDealsByTitle);
+      sinon.assert.calledWith(findDealsByTitle);
     });
   });
 

@@ -62,7 +62,7 @@ describe('GamesController', () => {
       const result = await gamesController.getAlerts('set', 'test@example.com', 1, 10);
 
       expect(result).to.equal('Alarm created');
-      // code to test that email was sent
+     
     });
   });
 
@@ -74,13 +74,10 @@ describe('GamesController', () => {
   //       {id: 3, name: 'Game 3'},
   //     ]
         
-  //     // Arrange
   //     const validIds = '1,2,3';
   
-  //     // Act
   //     const result = await gameService.getMultipleGames(validIds);
   
-  //     // Assert
   //     expect(result).to.eql([
   //       {id: 1, name: 'Game 1'},
   //       {id: 2, name: 'Game 2'},
@@ -89,13 +86,10 @@ describe('GamesController', () => {
   //   });
   
   //   it('returns an empty array for invalid IDs', async () => {
-  //     // Arrange
   //     const invalidIds = 'foo,bar,baz';
   
-  //     // Act
   //     const result = await gameService.getMultipleGames(invalidIds);
   
-  //     // Assert
   //     expect(result).to.be.eql([]);
   //   });
   // });
